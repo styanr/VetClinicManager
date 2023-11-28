@@ -1,0 +1,69 @@
+﻿<Window x:Class="VetClinicManager.View.Windows.ClientCreateView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VetClinicManager.View.Windows"
+        xmlns:viewModel="clr-namespace:VetClinicManager.ViewModel"
+        mc:Ignorable="d"
+        Title="New Client" Height="600" Width="330"
+        ResizeMode="NoResize"
+        Background="AntiqueWhite">
+    <Window.DataContext>
+        <viewModel:ClientCreateViewModel />
+    </Window.DataContext>
+
+    <Window.Resources>
+        <Style TargetType="{x:Type Grid}" x:Key="MainGrid">
+            <Setter Property="Background" Value="AntiqueWhite" />
+            <Setter Property="Margin" Value="40 20 40 50"/>
+        </Style>
+    </Window.Resources>
+    <Grid Style="{DynamicResource MainGrid}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Label Content="Create New Client" Style="{DynamicResource Heading}" Grid.Row="0"></Label>
+        <Label Content="First Name:" Grid.Row="1" Style="{DynamicResource FormLabel}" />
+        <TextBox Name="FirstNameTextBox" Grid.Row="2" Text="{Binding NewClient.FirstName, UpdateSourceTrigger=PropertyChanged}" />
+
+        <Label Content="Last Name:" Grid.Row="3" Style="{DynamicResource FormLabel}" />
+        <TextBox Name="LastNameTextBox" Grid.Row="4" Text="{Binding NewClient.LastName, UpdateSourceTrigger=PropertyChanged}" />
+
+        <Label Content="Phone Number:" Grid.Row="5" Style="{DynamicResource FormLabel}" />
+        <TextBox Name="PhoneNumberTextBox" Grid.Row="6" Text="{Binding NewClient.PhoneNumber, UpdateSourceTrigger=PropertyChanged}" />
+
+        <Label Content="Email:" Grid.Row="7" Style="{DynamicResource FormLabel}" />
+        <TextBox Name="EmailTextBox" Grid.Row="8" Text="{Binding NewClient.Email, UpdateSourceTrigger=PropertyChanged}" />
+
+        <Label Content="Postal Code:" Grid.Row="9" Style="{DynamicResource FormLabel}" />
+        <TextBox Name="PostalCodeTextBox" Grid.Row="10" Text="{Binding NewClient.PostalCode, UpdateSourceTrigger=PropertyChanged}" />
+
+        <Label Content="Address:" Grid.Row="11" Style="{DynamicResource FormLabel}" />
+        <TextBox Name="AddressTextBox" Grid.Row="12" Text="{Binding NewClient.Address, UpdateSourceTrigger=PropertyChanged}" />
+
+        <Grid Grid.Row="13">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Content="Create" Grid.Column="0" Command="{Binding SaveClientCommand}" 
+                    CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}" />
+            <Button IsCancel="True" Content="Cancel" Grid.Column="1" Command="{Binding CloseWindowCommand}"
+                    CommandParameter="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}}"/>
+        </Grid>
+    </Grid>
+</Window>
