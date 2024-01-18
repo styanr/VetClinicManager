@@ -52,7 +52,10 @@
                 <DataGridTemplateColumn Header="Actions">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button Content="Delete" Command="{Binding Path=DataContext.DeleteClientCommand, RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" CommandParameter="{Binding ClientId}" />
+                            <Button Content="Delete" 
+                                    Command="{Binding Path=DataContext.DeleteClientCommand, 
+                                        RelativeSource={RelativeSource AncestorType={x:Type DataGrid}}}" 
+                                    CommandParameter="{Binding ClientId}" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

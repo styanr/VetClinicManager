@@ -21,7 +21,6 @@
             <TabItem Header="Clients" >
                 <userControls:ClientsView />
             </TabItem>
-            <TabItem Header="Doctors" />
         </TabControl>
     </Grid>
 </Window>
